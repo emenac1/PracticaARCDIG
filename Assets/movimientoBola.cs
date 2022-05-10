@@ -9,7 +9,15 @@ public class movimientoBola : MonoBehaviour {
 	public int actual;
 	public bool botado;
 	// Use this for initialization
+
+	public static movimientoBola bola;
+
+	void Awake(){
+		bola = this;
+	}
+
 	void Start () {
+		print ("bola creada");
 		rb = GetComponent<Rigidbody> ();
 		ruta = new Vector3[5];
 		for (int i = 0; i < 5; i++) {
