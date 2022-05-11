@@ -38,23 +38,36 @@ public class movimientoBola : MonoBehaviour {
 			} else {
 				
 				int siguiente = 0;
-				for (int i = actual+1; i < actual+6; i++) {
+				bool encontrado = false;
+				for (int i = actual+1; i < actual+6 && !encontrado; i++) {
 					if (ruta [i % 5] != Vector3.zero) {
 						siguiente = i%5;
+						encontrado = true;
 					}
 				}
 
+				print("estoy en ruta de actual " + ruta[actual]);
+				print ("estoy en ruta de siguiente " + ruta [siguiente]);
 				float velocidadX=(ruta[siguiente].x-ruta[actual].x)*20;
 				float velocidadZ=(ruta[siguiente].z-ruta[actual].z)*20;
 				actual = siguiente;
 				rb.velocity = new Vector3 (velocidadX, velocidadVertical, velocidadZ);
 				botado = false;
 			}
+			transform.position = new Vector3 (transform.position.x, 0.1f, transform.position.z);
 		}
 
 		
 	}
 	public void setRuta(Vector3[] ruta){
 		this.ruta = ruta;
+		print ("esta es la ruta: ");
+		for (int i = 0; i < 5; i++)
+			print (ruta [i]);
 	}
+
+	public void destruir(){
+		Destroy (this);
+	}
+
 }

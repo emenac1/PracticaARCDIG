@@ -18,7 +18,6 @@ public class Controlador : MonoBehaviour {
 		//bola = GameObject.Find ("Bola");
 		for (int i = 0; i < 5; i++)
 			balones [i] = Vector3.zero;
-		print ("holahola");
 	}
 
 
@@ -28,7 +27,6 @@ public class Controlador : MonoBehaviour {
 		//bola = GameObject.Find ("Bola");
 		for (int i = 0; i < 5; i++)
 			balones [i] = Vector3.zero;
-		print ("holahola");
 	}
 
 
@@ -38,6 +36,7 @@ public class Controlador : MonoBehaviour {
 			//bola = new GameObject ("Bola");
 			//bola.SetActive (true);
 			bola = gameObject.AddComponent (typeof(movimientoBola)) as movimientoBola;
+			bolaCreada = true;
 		}
 
 			
@@ -46,6 +45,13 @@ public class Controlador : MonoBehaviour {
 	public int nuevoBalon (Vector3 posicion) {
 		bool noCreado = true;
 		int pos = -1;
+		if (!bolaCreada) {
+			//bola = new GameObject ("Bola");
+			//bola.SetActive (true);
+			bola = gameObject.AddComponent (typeof(movimientoBola)) as movimientoBola;
+			bolaCreada = true;
+		}
+		print ("la lista de balones es: ");
 		for (int i = 0; i < 5 && noCreado; i++) {
 			if (balones [i] == Vector3.zero){
 				balones [i] = posicion;
@@ -61,9 +67,20 @@ public class Controlador : MonoBehaviour {
 	}
 
 	public void borrarBalon (int posicion) {
+		bool vacio = false;
 		if(posicion != -1)
 			balones [posicion] = Vector3.zero;
-		movimientoBola.bola.setRuta (balones);
+		for (int i = 0; i < 5 && !vacio; i++) {
+			if (balones [i] != Vector3.zero)
+				vacio = true;
+		}
+		if (vacio) {
+			movimientoBola.bola.destruir ();
+			print ("bola borrada");
+		} else {
+			movimientoBola.bola.setRuta (balones);
+			print ("balon borrado");
+		}
 
 	}
 		

@@ -37,12 +37,6 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 		controladorCreado = false;
 		posicion = -1;
 		print ("controlador a crear");
-		//if (controlador == null) {
-		//	controlador = gameObject.AddComponent (typeof(Controlador)) as Controlador;
-			//controladorCreado = true;
-		//	print ("CONTROLADOR CREADO");
-		//}
-
     }
 
     #endregion // UNTIY_MONOBEHAVIOUR_METHODS
@@ -123,11 +117,9 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Disable canvas':
         foreach (var component in canvasComponents)
             component.enabled = false;
-		//controlador.borrarBalon (transform.position);
-		print("adiosadios");
 		Controlador.controlador.borrarBalon(posicion);
 		posicion = -1;
-		print ("balon borrado");
+
     }
 
     #endregion // PRIVATE_METHODS
