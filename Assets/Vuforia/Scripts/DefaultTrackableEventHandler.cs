@@ -95,6 +95,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         foreach (var component in canvasComponents)
             component.enabled = true;
 		//controlador.nuevoBalon (transform.position);
+
 		posicion = Controlador.controlador.nuevoBalon(transform.position);
 		print ("balon encontrado");
     }
@@ -117,6 +118,8 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Disable canvas':
         foreach (var component in canvasComponents)
             component.enabled = false;
+
+
 		Controlador.controlador.borrarBalon(posicion);
 		posicion = -1;
 

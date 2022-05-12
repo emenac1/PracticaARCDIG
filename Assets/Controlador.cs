@@ -9,6 +9,9 @@ public class Controlador : MonoBehaviour {
 	bool bolaCreada;
 	public movimientoBola bola;
 	public static Controlador controlador;
+
+	public Transform PanelJugar;
+	public Transform PanelCreditos;
 	// Use this for initialization
 
 	public void Awake(){
@@ -24,6 +27,10 @@ public class Controlador : MonoBehaviour {
 	void Start () {
 		balones = new Vector3[5];
 		bolaCreada = false;
+
+		PanelJugar.gameObject.SetActive (true);
+		PanelCreditos.gameObject.SetActive (false);
+
 		//bola = GameObject.Find ("Bola");
 		for (int i = 0; i < 5; i++)
 			balones [i] = Vector3.zero;
