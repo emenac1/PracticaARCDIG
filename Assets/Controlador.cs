@@ -7,11 +7,10 @@ public class Controlador : MonoBehaviour {
 	//EN DefaultTrackableEventHandler POSIBLEMENTE ESTÉ EL FALLO, MIRAR
 	private Vector3[] balones;
 	bool bolaCreada;
-	public movimientoBola bola;
 	public static Controlador controlador;
 
-	public Transform PanelJugar;
-	public Transform PanelCreditos;
+	public GameObject Bola;
+	public GameObject instanciaBola;
 	// Use this for initialization
 
 	public void Awake(){
@@ -27,10 +26,7 @@ public class Controlador : MonoBehaviour {
 	void Start () {
 		balones = new Vector3[5];
 		bolaCreada = false;
-
-		PanelJugar.gameObject.SetActive (true);
-		PanelCreditos.gameObject.SetActive (false);
-
+	
 		//bola = GameObject.Find ("Bola");
 		for (int i = 0; i < 5; i++)
 			balones [i] = Vector3.zero;
@@ -39,14 +35,7 @@ public class Controlador : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (!bolaCreada && balones [0] != Vector3.zero) {
-			//bola = new GameObject ("Bola");
-			//bola.SetActive (true);
-			bola = gameObject.AddComponent (typeof(movimientoBola)) as movimientoBola;
-			bolaCreada = true;
-		}
-
-			
+					
 	}
 
 	public int nuevoBalon (Vector3 posicion) {
@@ -55,7 +44,7 @@ public class Controlador : MonoBehaviour {
 		if (!bolaCreada) {
 			//bola = new GameObject ("Bola");
 			//bola.SetActive (true);
-			bola = gameObject.AddComponent (typeof(movimientoBola)) as movimientoBola;
+			instanciaBola = (GameObject)Instantiate(Bola, posicion, Quaternion.identity);
 			bolaCreada = true;
 		}
 		print ("la lista de balones es: ");
@@ -68,7 +57,7 @@ public class Controlador : MonoBehaviour {
 
 			print (balones [i]);
 		}
-		movimientoBola.bola.setRuta(balones);
+		Bola.GetComponent<movimientoBola>().setRuta(balones);
 		return pos;
 
 	}
@@ -82,10 +71,10 @@ public class Controlador : MonoBehaviour {
 				vacio = true;
 		}
 		if (vacio) {
-			movimientoBola.bola.destruir ();
+			Bola.GetComponent<movimientoBola> ().destruir();
 			print ("bola borrada");
 		} else {
-			movimientoBola.bola.setRuta (balones);
+			Bola.GetComponent<movimientoBola>().setRuta (balones);
 			print ("balon borrado");
 		}
 

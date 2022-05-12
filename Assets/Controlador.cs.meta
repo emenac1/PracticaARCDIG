@@ -5,7 +5,10 @@ licenseType: Pro
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - PanelJugar: {instanceID: 0}
+  - PanelCreditos: {instanceID: 0}
+  - Bola: {fileID: 1949093607432344, guid: 9bc6aa5d4c499074492677fe3dbacdd9, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

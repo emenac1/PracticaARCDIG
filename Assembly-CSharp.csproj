@@ -52,9 +52,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Controlador.cs" />
+     <Compile Include="Assets\CreditoBehaviour.cs" />
      <Compile Include="Assets\JugarBehaviour.cs" />
      <Compile Include="Assets\movimientoBola.cs" />
      <Compile Include="Assets\Pelota.cs" />
+     <Compile Include="Assets\SalirBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\DefaultInitializationErrorHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\DefaultTrackableEventHandler.cs" />
      <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />

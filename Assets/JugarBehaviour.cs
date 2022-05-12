@@ -20,7 +20,7 @@ public class JugarBehaviour : MonoBehaviour {
 	}
 
 	public void TaskOnClick(){
-		Debug.Log ("Click jugar");
+		print ("Click jugar");
 		PanelJugar.gameObject.SetActive (false);
 
 	}

@@ -10,11 +10,9 @@ public class movimientoBola : MonoBehaviour {
 	public bool botado;
 	// Use this for initialization
 
-	public static movimientoBola bola;
+	//public static movimientoBola bola;
 
-	void Awake(){
-		bola = this;
-	}
+
 
 	void Start () {
 		print ("bola creada");
@@ -31,10 +29,10 @@ public class movimientoBola : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (transform.position.y <= 0) {
-			velocidadVertical = 40;
+			velocidadVertical = 2000;
 			if (!botado) {
 				botado = true;
-				rb.velocity = new Vector3 (0, velocidadVertical, 0);
+				rb.AddForce(new Vector3(0,velocidadVertical,0));
 			} else {
 				
 				int siguiente = 0;
@@ -48,10 +46,10 @@ public class movimientoBola : MonoBehaviour {
 
 				print("estoy en ruta de actual " + ruta[actual]);
 				print ("estoy en ruta de siguiente " + ruta [siguiente]);
-				float velocidadX=(ruta[siguiente].x-ruta[actual].x)*20;
-				float velocidadZ=(ruta[siguiente].z-ruta[actual].z)*20;
+				float velocidadX=(ruta[siguiente].x-ruta[actual].x)*2000;
+				float velocidadZ=(ruta[siguiente].z-ruta[actual].z)*2000;
 				actual = siguiente;
-				rb.velocity = new Vector3 (velocidadX, velocidadVertical, velocidadZ);
+				rb.AddForce (new Vector3 (velocidadX, velocidadVertical, velocidadZ));
 				botado = false;
 			}
 			transform.position = new Vector3 (transform.position.x, 0.1f, transform.position.z);
@@ -67,7 +65,7 @@ public class movimientoBola : MonoBehaviour {
 	}
 
 	public void destruir(){
-		Destroy (this);
+		Destroy (this.gameObject);
 	}
 
 }
