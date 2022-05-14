@@ -24,6 +24,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
 	private int posicion;
 
+	public Vector3 coordenadas;
 
     #endregion // PRIVATE_MEMBER_VARIABLES
 
@@ -97,7 +98,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 		//controlador.nuevoBalon (transform.position);
 
 		posicion = Controlador.controlador.nuevoBalon(transform.position);
-		print ("balon encontrado");
+		print ("balon encontrado con posicion: "+ transform.position );
     }
 
 
@@ -124,6 +125,10 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 		posicion = -1;
 
     }
+
+	void Update(){
+		//Controlador.controlador.actualizarPosicion (posicion, transform.position);
+	}
 
     #endregion // PRIVATE_METHODS
 }

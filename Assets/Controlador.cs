@@ -57,27 +57,36 @@ public class Controlador : MonoBehaviour {
 
 			print (balones [i]);
 		}
-		Bola.GetComponent<movimientoBola>().setRuta(balones);
+		instanciaBola.GetComponent<movimientoBola>().setRuta(balones);
 		return pos;
 
 	}
 
 	public void borrarBalon (int posicion) {
-		bool vacio = false;
+		bool noVacio = false;
 		if(posicion != -1)
 			balones [posicion] = Vector3.zero;
-		for (int i = 0; i < 5 && !vacio; i++) {
+		for (int i = 0; i < 5 && !noVacio; i++) { 
 			if (balones [i] != Vector3.zero)
-				vacio = true;
+				noVacio = true;
 		}
-		if (vacio) {
-			Bola.GetComponent<movimientoBola> ().destruir();
+		if(!noVacio){
+			//Bola.GetComponent<movimientoBola> ().destruir();
+			bolaCreada = false;
+			Destroy(instanciaBola);
 			print ("bola borrada");
 		} else {
 			Bola.GetComponent<movimientoBola>().setRuta (balones);
 			print ("balon borrado");
 		}
 
+	}
+
+	public void actualizarPosicion(int posicion, Vector3 coordenadas){
+		if (posicion != -1) {
+			balones [posicion] = coordenadas;
+			Bola.GetComponent<movimientoBola>().setRuta (balones);
+		}
 	}
 		
 }
