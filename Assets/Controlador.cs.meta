@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4d4e9fd909458eb44b3e1b6fe6146c86
+timeCreated: 1651131247
+licenseType: Pro
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - PanelJugar: {instanceID: 0}
+  - PanelCreditos: {instanceID: 0}
+  - Bola: {fileID: 1949093607432344, guid: 9bc6aa5d4c499074492677fe3dbacdd9, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="wilson" size="54.000000 53.636364" />
+    <ImageTarget name="furbo" size="54.000000 54.000000" />
+    <ImageTarget name="waterpolo" size="54.000000 54.000000" />
+    <ImageTarget name="rugby" size="54.000000 54.000000" />
+    <CylinderTarget name="RedBull" sideLength="134.000000"/>
+  </Tracking>
+</QCARConfig>
