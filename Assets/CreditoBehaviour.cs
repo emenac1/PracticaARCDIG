@@ -6,7 +6,7 @@ using UnityEngine;
 public class CreditoBehaviour : MonoBehaviour {
 	public Button creditos;
 	public Transform PanelCreditos;
-	public Transform PanelJugar;
+	public Transform PanelInicial;
 	// Use this for initialization
 	void Start () {
 		Button btn = creditos.GetComponent<Button> ();
@@ -20,7 +20,7 @@ public class CreditoBehaviour : MonoBehaviour {
 
 	public void TaskOnClick(){
 		print ("Click jugar");
-		PanelJugar.gameObject.SetActive (false);
+		PanelInicial.gameObject.SetActive (false);
 		PanelCreditos.gameObject.SetActive (true);
 
 	}

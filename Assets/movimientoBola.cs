@@ -12,6 +12,7 @@ public class movimientoBola : MonoBehaviour {
 	private int cont;
 	private float suelo;
 	private bool finalizado;
+	private Vector3 redbull;
 
 
 	// Use this for initialization
@@ -19,8 +20,8 @@ public class movimientoBola : MonoBehaviour {
 	public void Awake()
 	{
 		finalizado = false;
-		ruta = new Vector3[5];
-		for (int i = 0; i < 5; i++)
+		ruta = new Vector3[4];
+		for (int i = 0; i < 4; i++)
 			ruta[i] = Vector3.zero; 
 		
 	}
@@ -28,8 +29,8 @@ public class movimientoBola : MonoBehaviour {
 	void Start () {
 		print ("bola creada");
 		rb = GetComponent<Rigidbody> ();
-		ruta = new Vector3[5];
-		for (int i = 0; i < 5; i++) {
+		ruta = new Vector3[4];
+		for (int i = 0; i < 4; i++) {
 			ruta [i] = Vector3.zero;
 		}
 		velocidadVertical = 2000;
@@ -39,6 +40,7 @@ public class movimientoBola : MonoBehaviour {
 		siguiente = 0;
 		cont = 200;
 		finalizado = false;
+		redbull = Vector3.zero;
 	}
 
 	// Update is called once per frame
@@ -85,26 +87,41 @@ public class movimientoBola : MonoBehaviour {
 						bool noVacio = true;
 						if (siguiente == 0)
 						{
-							for (int i = 0; i < 5 && noVacio; i++)
+							print ("el siguiente 0");
+							
+							for (int i = 0; i < 4 && noVacio; i++)
 							{
 								if (ruta[i] == Vector3.zero)
 									noVacio = false;
+								print (ruta [i]);
 							}
+							print ("no vacio vale: " + noVacio);
 							if (noVacio)
 							{
 								siguiente = 4;
 								finalizado = true;
+								print ("good ending");
 							}
+
 						}
+						if (siguiente != 4) {
+							print ("Paraboleo y pongo botado a false");
+							botado = false;
+							print ("estoy en ruta de actual " + ruta [actual]);
+							print ("estoy en ruta de siguiente " + ruta [siguiente]);
 
-						print("Paraboleo y pongo botado a false");
-						botado = false;
-						print("estoy en ruta de actual " + ruta[actual]);
-						print("estoy en ruta de siguiente " + ruta[siguiente]);
+							rb.AddForce ((ruta [siguiente].x - ruta [actual].x) * 6, 0, (ruta [siguiente].z - ruta [actual].z) * 6);
+							actual = siguiente;
+							suelo = ruta [actual].y;
+						} else {
+							print ("Paraboleo y pongo botado a false");
+							botado = false;
+							print ("estoy en ruta de actual " + ruta [actual]);
+							print ("estoy en ruta de siguiente " + redbull);
 
-						rb.AddForce((ruta[siguiente].x - ruta[actual].x) * 6, 0, (ruta[siguiente].z - ruta[actual].z) * 6);
-						actual = siguiente;
-						suelo = ruta[actual].y;
+							rb.AddForce ((redbull.x - ruta [actual].x) * 6, 0, (redbull.z - ruta [actual].z) * 6);
+							actual = siguiente;
+						}
 
 					}
 				}
@@ -125,12 +142,13 @@ public class movimientoBola : MonoBehaviour {
         }
 		
 		print ("esta es la ruta: ");
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 4; i++)
 			print (ruta [i]);
 	}
 	public void setRedbull(Vector3 posicion)
 	{
-		ruta[4] = posicion;
+		redbull = posicion;
+		print ("RedBull encontrado" + redbull);
 	}
 
 

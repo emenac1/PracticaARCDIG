@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class JugarBehaviour : MonoBehaviour {
 
 	public Button jugar;
-	public Transform PanelJugar;
+	public Transform PanelInicial;
+	public Transform PanelJuego;
 
 
 	// Use this for initialization
@@ -21,7 +22,9 @@ public class JugarBehaviour : MonoBehaviour {
 
 	public void TaskOnClick(){
 		print ("Click jugar");
-		PanelJugar.gameObject.SetActive (false);
+		PanelInicial.gameObject.SetActive (false);
+		PanelJuego.gameObject.SetActive (true);
+
 
 	}
 }
