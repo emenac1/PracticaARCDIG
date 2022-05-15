@@ -90,7 +90,8 @@ public class Controlador : MonoBehaviour {
 	public void crearRedbull(Vector3 posicion)
     {
 		redbull = posicion;
-		Bola.GetComponent<movimientoBola>().setRedbull(posicion);
+		if(instanciaBola != null)
+			instanciaBola.GetComponent<movimientoBola>().setRedbull(posicion);
     }
 	public void borrarRedbull()
 	{

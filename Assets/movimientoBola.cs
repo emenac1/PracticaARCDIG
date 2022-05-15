@@ -10,7 +10,6 @@ public class movimientoBola : MonoBehaviour {
 	public bool botado;
 	private int siguiente;
 	private int cont;
-	private float suelo;
 	private bool finalizado;
 	private Vector3 redbull;
 
@@ -35,7 +34,6 @@ public class movimientoBola : MonoBehaviour {
 		}
 		velocidadVertical = 2000;
 		actual = 0;
-		suelo = 0;
 		botado = false;
 		siguiente = 0;
 		cont = 200;
@@ -99,7 +97,7 @@ public class movimientoBola : MonoBehaviour {
 							if (noVacio)
 							{
 								siguiente = 4;
-								finalizado = true;
+
 								print ("good ending");
 							}
 
@@ -111,16 +109,16 @@ public class movimientoBola : MonoBehaviour {
 							print ("estoy en ruta de siguiente " + ruta [siguiente]);
 
 							rb.AddForce ((ruta [siguiente].x - ruta [actual].x) * 6, 0, (ruta [siguiente].z - ruta [actual].z) * 6);
+
 							actual = siguiente;
-							suelo = ruta [actual].y;
 						} else {
-							print ("Paraboleo y pongo botado a false");
-							botado = false;
+							print ("Voy al RedBull");
+							botado = true;
 							print ("estoy en ruta de actual " + ruta [actual]);
 							print ("estoy en ruta de siguiente " + redbull);
 
 							rb.AddForce ((redbull.x - ruta [actual].x) * 6, 0, (redbull.z - ruta [actual].z) * 6);
-							actual = siguiente;
+							finalizado = true;
 						}
 
 					}
