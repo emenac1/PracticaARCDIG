@@ -55,6 +55,7 @@
      <Compile Include="Assets\CreditoBehaviour.cs" />
      <Compile Include="Assets\JugarBehaviour.cs" />
      <Compile Include="Assets\movimientoBola.cs" />
+     <Compile Include="Assets\OtroBalonBehaviour.cs" />
      <Compile Include="Assets\Pelota.cs" />
      <Compile Include="Assets\SalirBehaviour.cs" />
      <Compile Include="Assets\VolverBehaviour.cs" />

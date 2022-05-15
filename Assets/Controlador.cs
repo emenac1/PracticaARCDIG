@@ -99,4 +99,14 @@ public class Controlador : MonoBehaviour {
 		Bola.GetComponent<movimientoBola>().setRedbull(Vector3.zero);
 	}
 
+	public void repetir(){
+		if(balones[0] != Vector3.zero){
+			instanciaBola = (GameObject)Instantiate(Bola, balones[0], Quaternion.identity);
+			bolaCreada = true;
+			instanciaBola.GetComponent<movimientoBola> ().setRuta (balones);
+			instanciaBola.GetComponent<movimientoBola> ().setRedbull (redbull);
+		}
+
+	}
+
 }
